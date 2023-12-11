@@ -13,3 +13,25 @@ export function getAllArticlesByTopic(category = "") {
       console.log(err);
     });
 }
+
+export function getArticleById(article_id) {
+  return api
+    .get(`api/articles/${article_id}`)
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+export function getCommentsByArticleId(article_id) {
+  return api
+    .get(`api/articles/${article_id}/comments`)
+    .then((response) => {
+      return response;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}

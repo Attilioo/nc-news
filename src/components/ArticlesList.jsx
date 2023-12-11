@@ -12,7 +12,6 @@ const ArticlesList = ({ articles }) => {
   return (
     <section className="article-list">
       {articles.map((article) => {
-        console.log(article);
         return <ArticleCard article={article} key={uuid()} />;
       })}
     </section>
