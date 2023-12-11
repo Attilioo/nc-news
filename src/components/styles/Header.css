@@ -1,0 +1,13 @@
+.header {
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: black;
+  height: 3em;
+}
+
+nav > * {
+  text-decoration: none;
+  font-weight: 600;
+}
