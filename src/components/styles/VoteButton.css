@@ -1,0 +1,30 @@
+.vote-button {
+  margin: 0.2em;
+  cursor: pointer;
+  background-color: white;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 15px;
+}
+.upvote {
+  border: 1px solid greenyellow;
+}
+
+.upvote:hover {
+  background-color: greenyellow;
+}
+
+.downvote {
+  border: 1px solid rgb(198, 44, 44);
+}
+
+.downvote:hover {
+  background-color: rgb(198, 44, 44);
+}
+
+.upvote:disabled {
+  background-color: greenyellow;
+}
+.downvote:disabled {
+  background-color: rgb(198, 44, 44);
+}
