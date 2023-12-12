@@ -9,14 +9,16 @@ const CommentList = () => {
   const { article_id } = useParams();
 
   getCommentsByArticleId(article_id).then((response) => {
-    setComments(response.data);
+    setComments(response);
   });
 
   return (
     <section className="comment-section">
-      {comments.map((comment) => {
-        return <CommentCard comment={comment} />;
-      })}
+      {comments.length === 0
+        ? "There are no comments to display"
+        : comments.map((comment) => {
+            return <CommentCard comment={comment} />;
+          })}
     </section>
   );
 };

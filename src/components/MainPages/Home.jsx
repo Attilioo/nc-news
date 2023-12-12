@@ -8,11 +8,11 @@ const Home = () => {
 
   useEffect(() => {
     getAllArticlesByTopic().then((response) => {
-      setArticles(response.data);
+      setArticles(response);
     });
   }, []);
 
-  return <ArticlesList articles={articles}/>;
+  return <ArticlesList articles={articles} />;
 };
 
 export default Home;

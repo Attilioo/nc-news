@@ -5,7 +5,7 @@ const ArticlesList = ({ articles }) => {
   if (articles.length === 0) {
     return (
       <section className="article-list">
-        Please Wait Articles are loading
+        Please Wait Articles are loading...
       </section>
     );
   }

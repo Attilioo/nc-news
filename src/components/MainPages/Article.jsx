@@ -10,8 +10,7 @@ const Article = () => {
 
   useEffect(() => {
     getArticleById(article_id).then((response) => {
-      console.log(response.data);
-      setArticle(response.data);
+      setArticle(response);
     });
   }, []);
 
