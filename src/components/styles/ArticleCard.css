@@ -1,6 +1,6 @@
 .article-card {
   width: 70%;
-  padding: 2em;
+  padding: 1em;
   background-color: white;
   margin: 20px;
   margin-left: auto;
@@ -17,4 +17,8 @@
   background-color: antiquewhite;
   border-radius: 25px;
   padding: 0.5em;
+}
+
+.article-link {
+  text-decoration: none;
 }

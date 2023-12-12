@@ -1,0 +1,13 @@
+.comment-card {
+  background-color: white;
+  color: black;
+  margin-bottom: 3em;
+  margin-left: 20px;
+  margin-right: auto;
+  width: 80%;
+  padding: 2em;
+}
+
+.comment-card > * {
+  margin: 0.5em;
+}
