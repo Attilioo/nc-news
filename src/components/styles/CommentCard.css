@@ -11,3 +11,7 @@
 .comment-card > * {
   margin: 0.5em;
 }
+
+.deleting {
+  color: white;
+}

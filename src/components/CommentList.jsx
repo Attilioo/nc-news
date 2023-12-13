@@ -12,6 +12,7 @@ import CommentForm from "./CommentForm";
 const CommentList = () => {
   const [comments, setComments] = useState([]);
   const { article_id } = useParams();
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     getCommentsByArticleId(article_id)
@@ -24,15 +25,20 @@ const CommentList = () => {
   }, [article_id]);
 
   const handleDeleteComment = (comment_id) => {
+    setIsDeleting(true);
     deleteComment(comment_id)
-      .then(console.log("comment Deleted!"))
+      .then((response) => {
+        const newComments = comments.filter(
+          (comment) => comment.comment_id !== comment_id
+        );
+        setComments(newComments);
+        setIsDeleting(false);
+      })
       .catch((err) => {
         console.log(err);
+        alert("there was an error, please try again later");
+        setIsDeleting(false);
       });
-    const newComments = comments.filter(
-      (comment) => comment.comment_id !== comment_id
-    );
-    setComments(newComments);
   };
   return (
     <>
@@ -47,6 +53,7 @@ const CommentList = () => {
                 <CommentCard
                   comment={comment}
                   handleDeleteComment={handleDeleteComment}
+                  isDeleting={isDeleting}
                 />
               );
             })}

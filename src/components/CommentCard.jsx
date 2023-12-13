@@ -1,10 +1,10 @@
 import "./styles/CommentCard.css";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
-const CommentCard = ({ comment, handleDeleteComment }) => {
+const CommentCard = ({ comment, handleDeleteComment, isDeleting }) => {
   const { user } = useContext(UserContext);
   return (
-    <section className="comment-card">
+    <section className={`comment-card ${isDeleting ? "deleting" : ""}`}>
       <span className="article-info">
         <p className="author">{comment.author}</p> <p>{comment.created_at}</p>
       </span>
