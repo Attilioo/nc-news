@@ -24,7 +24,11 @@ const CommentList = () => {
   }, [article_id]);
 
   const handleDeleteComment = (comment_id) => {
-    deleteComment(comment_id).then(console.log("comment Deleted!"));
+    deleteComment(comment_id)
+      .then(console.log("comment Deleted!"))
+      .catch((err) => {
+        console.log(err);
+      });
     const newComments = comments.filter(
       (comment) => comment.comment_id !== comment_id
     );
