@@ -7,9 +7,13 @@ const Home = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    getAllArticlesByTopic().then((response) => {
-      setArticles(response);
-    });
+    getAllArticlesByTopic()
+      .then((response) => {
+        setArticles(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return <ArticlesList articles={articles} />;

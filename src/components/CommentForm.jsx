@@ -6,6 +6,7 @@ import { postCommentFromArticleId } from "../apis/api";
 const CommentForm = ({ setComments }) => {
   const { user } = useContext(UserContext);
   const { article_id } = useParams();
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const [commentToPost, setCommentToPost] = useState({
     body: "",
@@ -23,21 +24,27 @@ const CommentForm = ({ setComments }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    postCommentFromArticleId(article_id, commentToPost).then((response) => {
-      console.log(response);
-      setComments((curr) => {
-        return [response, ...curr];
+    setIsDisabled(true);
+    postCommentFromArticleId(article_id, commentToPost)
+      .then((response) => {
+        console.log(response);
+        setComments((curr) => {
+          return [response, ...curr];
+        });
+        setCommentToPost({
+          body: "",
+          username: user,
+        });
+        setIsDisabled(false);
+      })
+      .catch((err) => {
+        console.log(err);
       });
-      setCommentToPost({
-        body: "",
-        username: user,
-      });
-    });
-   };
+  };
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="body" />
-      <input
+      <textarea
         type="text"
         name="body"
         placeholder="write your comment here..."
@@ -45,7 +52,7 @@ const CommentForm = ({ setComments }) => {
         required
         value={commentToPost.body}
       />
-      <button>Submit</button>
+      <button disabled={isDisabled}>Submit</button>
     </form>
   );
 };
