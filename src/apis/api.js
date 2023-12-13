@@ -4,36 +4,29 @@ const api = axios.create({
 });
 
 export function getAllArticlesByTopic(category = "") {
-  return api
-    .get(`api/articles?topic=${category}`)
-    .then((response) => {
-      return response.data;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  return api.get(`api/articles?topic=${category}`).then((response) => {
+    return response.data;
+  });
 }
 
 export function getArticleById(article_id) {
-  return api
-    .get(`api/articles/${article_id}`)
-    .then((response) => {
-      return response.data;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  return api.get(`api/articles/${article_id}`).then((response) => {
+    return response.data;
+  });
 }
 
 export function getCommentsByArticleId(article_id) {
+  return api.get(`api/articles/${article_id}/comments`).then((response) => {
+    if (response.data.length === 0) return [];
+    return response.data;
+  });
+}
+
+export function postCommentFromArticleId(article_id, comment) {
   return api
-    .get(`api/articles/${article_id}/comments`)
+    .post(`api/articles/${article_id}/comments`, comment)
     .then((response) => {
-      if (response.data.length === 0) return [];
       return response.data;
-    })
-    .catch((err) => {
-      console.log(err);
     });
 }
 

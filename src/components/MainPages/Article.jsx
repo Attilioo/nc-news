@@ -34,6 +34,7 @@ const Article = () => {
   };
 
   useEffect(() => {
+
     getArticleById(article_id).then((response) => {
       setArticle(response);
     });
