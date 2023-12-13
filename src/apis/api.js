@@ -29,3 +29,17 @@ export function postCommentFromArticleId(article_id, comment) {
       return response.data;
     });
 }
+
+export function voteArticle(article_id, vote) {
+  const incomingVote = {
+    inc_votes: vote,
+  };
+  return api
+    .patch(`api/articles/${article_id}`, incomingVote)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
