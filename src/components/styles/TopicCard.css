@@ -1,0 +1,9 @@
+.topic-card {
+  width: 100px;
+  padding: 1em;
+  background-color: aliceblue;
+  color: black;
+  text-align: center;
+  margin: 2em;
+  border-radius: 25px;
+}

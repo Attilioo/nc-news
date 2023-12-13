@@ -7,6 +7,7 @@ const Header = () => {
       <span>Logo</span>
       <nav className="nav">
         <Link to={"/"}>Home</Link>
+        <Link to={"/topics"}>Topics</Link>
       </nav>
     </section>
   );

@@ -10,4 +10,9 @@
 nav > * {
   text-decoration: none;
   font-weight: 600;
+  margin: 2em;
+}
+
+nav > * :hover {
+  color: brown;
 }
