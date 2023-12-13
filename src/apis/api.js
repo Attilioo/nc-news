@@ -36,3 +36,14 @@ export function getCommentsByArticleId(article_id) {
       console.log(err);
     });
 }
+
+export function postCommentFromArticleId(article_id, comment) {
+  return api
+    .post(`api/articles/${article_id}/comments`, comment)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
