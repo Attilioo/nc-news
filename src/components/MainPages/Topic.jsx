@@ -29,7 +29,7 @@ const Topic = () => {
     <>
       {" "}
       {isLoading ? (
-        <p>PLease Wait the Topic is loading...</p>
+        <p>Please Wait the Topic is loading...</p>
       ) : (
         <>
           <section className="article-main">
