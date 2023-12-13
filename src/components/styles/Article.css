@@ -16,3 +16,12 @@
 .article-data > * {
   margin: 1em 0em;
 }
+.category-link {
+  text-decoration: none;
+  color: black;
+}
+
+.category-link:hover {
+  text-decoration: underline;
+  color: rgb(203, 38, 38);
+}
