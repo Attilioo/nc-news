@@ -10,9 +10,13 @@ const CommentList = () => {
   const { article_id } = useParams();
 
   useEffect(() => {
-    getCommentsByArticleId(article_id).then((response) => {
-      setComments(response);
-    });
+    getCommentsByArticleId(article_id)
+      .then((response) => {
+        setComments(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [article_id]);
 
   // getCommentsByArticleId(article_id).then((response) => {

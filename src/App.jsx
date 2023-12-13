@@ -12,7 +12,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />{" "}
-        <Route path="/api/articles/:article_id" element={<Article />} />
+        <Route path="/articles/:article_id" element={<Article />} />
       </Routes>{" "}
     </UserProvider>
   );
