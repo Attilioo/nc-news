@@ -22,7 +22,12 @@ const Article = () => {
 
   const handleDownvote = () => {
     const chosenVote = -1;
-    voteArticle(article_id, chosenVote);
+    voteArticle(article_id, chosenVote)
+      .then()
+      .catch((err) => {
+        console.log(err);
+        setTotalVotes(article.vote);
+      });
     setTotalVotes((curr) => curr - 1);
     setDownVoted(true);
     setUpVoted(false);
