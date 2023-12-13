@@ -43,3 +43,9 @@ export function voteArticle(article_id, vote) {
       console.log(err);
     });
 }
+
+export function deleteComment(comment_id) {
+  return api.delete(`api/comments/${comment_id}`).then((response) => {
+    return response.data;
+  });
+}
