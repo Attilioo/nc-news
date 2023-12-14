@@ -5,7 +5,7 @@ const api = axios.create({
 
 export function getAllArticlesByTopic(
   category = "",
-  sortBy = "",
+  sortBy = "created_at",
   order = "ASC"
 ) {
   return api
@@ -61,4 +61,3 @@ export function getTopics() {
     return response.data;
   });
 }
-
