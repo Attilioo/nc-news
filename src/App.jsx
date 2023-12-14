@@ -5,6 +5,8 @@ import Header from "./components/Header";
 import Home from "./components/MainPages/Home";
 import Article from "./components/MainPages/Article";
 import { UserProvider } from "./context/UserContext";
+import Topics from "./components/MainPages/Topics";
+import Topic from "./components/MainPages/Topic";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />{" "}
         <Route path="/articles/:article_id" element={<Article />} />
+        <Route path="/topics" element={<Topics />} />
+        <Route path="/topics/:topic_name" element={<Topic />} />
       </Routes>{" "}
     </UserProvider>
   );

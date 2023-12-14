@@ -49,3 +49,10 @@ export function deleteComment(comment_id) {
     return response.data;
   });
 }
+
+export function getTopics() {
+  return api.get("api/topics").then((response) => {
+    return response.data;
+  });
+}
+

@@ -5,6 +5,7 @@ import { getArticleById, voteArticle } from "../../apis/api";
 import "../styles/Article.css";
 import CommentList from "../CommentList";
 import VoteButton from "../VoteButton";
+import { Link } from "react-router-dom";
 const Article = () => {
   const [article, setArticle] = useState({});
   const { article_id } = useParams();
@@ -34,7 +35,6 @@ const Article = () => {
   };
 
   useEffect(() => {
-
     getArticleById(article_id).then((response) => {
       setArticle(response);
     });
@@ -50,7 +50,9 @@ const Article = () => {
         <div className="article-data">
           <span className="article-info">
             <p className="author">{article.author}</p>{" "}
-            <p className="topic">{article.topic}</p>
+            <Link to={`/topics/${article.topic}`} className="category-link">
+              <p className="topic">{article.topic}</p>
+            </Link>
           </span>
           <p className="title">{article.title}</p>
           <p>{article.body}</p>
