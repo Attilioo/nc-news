@@ -7,8 +7,8 @@ import { useSearchParams } from "react-router-dom";
 const Home = () => {
   const [articles, setArticles] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const sortBy = searchParams.get("sort_by");
-  const order = searchParams.get("order");
+  const sortBy = searchParams.get("sort_by") || "created_at";
+  const order = searchParams.get("order") || "ASC";
 
   useEffect(() => {
     getAllArticlesByTopic("", sortBy, order)
@@ -30,7 +30,7 @@ const Home = () => {
         }
       >
         <option value="created_at">Date</option>
-        <option value="comment_count">Comment Count</option>
+        <option value="comment_count">Comments</option>
         <option value="votes">Votes</option>
       </select>
 
