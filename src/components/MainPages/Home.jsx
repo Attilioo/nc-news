@@ -12,13 +12,25 @@ const Home = () => {
   const order = searchParams.get("order") || "ASC";
   const [error, setError] = useState(null);
 
+  const validSortByOptions = ["created_at", "comment_count", "votes"];
+  const validOrderOptions = ["ASC", "DESC"];
+
+  useEffect(() => {
+    if (
+      !validSortByOptions.includes(sortBy) ||
+      !validOrderOptions.includes(order)
+    ) {
+      setError("Invalid sort or order parameter in the URL");
+      return;
+    }
+  });
   useEffect(() => {
     getAllArticlesByTopic("", sortBy, order)
       .then((response) => {
         setArticles(response);
       })
       .catch((err) => {
-        setError({ err });
+        setError(err);
         console.log(err);
       });
   }, [sortBy, order]);

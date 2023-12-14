@@ -12,6 +12,9 @@ export function getAllArticlesByTopic(
     .get(`api/articles?topic=${category}&sort_by=${sortBy}&order=${order}`)
     .then((response) => {
       return response.data;
+    })
+    .catch((err) => {
+      return { status: 500, statusText: "damn" };
     });
 }
 
