@@ -6,7 +6,7 @@ const api = axios.create({
 export function getAllArticlesByTopic(
   category = "",
   sortBy = "",
-  order = "asc"
+  order = "ASC"
 ) {
   return api
     .get(`api/articles?topic=${category}&sort_by=${sortBy}&order=${order}`)
