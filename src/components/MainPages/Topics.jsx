@@ -4,20 +4,26 @@ import "../styles/Topics.css";
 import TopicCard from "../TopicCard";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import Error from "./Error";
 
 const Topics = () => {
   const { topic_name } = useParams();
   const [topics, setTopics] = useState([]);
 
   const [topicToDisplay, setTopicToDisplay] = useState("");
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     getTopics().then((response) => {
       console.log(response);
       setTopics(response);
+    }).catch((err) => {
+      setError({ err });
     });
   }, []);
-
+  if (error) {
+    return <Error message={error} />;
+  }
   return (
     <section className="topic-main">
       {topics.map((topic) => {

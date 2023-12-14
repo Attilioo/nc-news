@@ -5,13 +5,16 @@ const api = axios.create({
 
 export function getAllArticlesByTopic(
   category = "",
-  sortBy = "",
+  sortBy = "created_at",
   order = "ASC"
 ) {
   return api
     .get(`api/articles?topic=${category}&sort_by=${sortBy}&order=${order}`)
     .then((response) => {
       return response.data;
+    })
+    .catch((err) => {
+      return { status: 500, statusText: "damn" };
     });
 }
 
@@ -61,4 +64,3 @@ export function getTopics() {
     return response.data;
   });
 }
-

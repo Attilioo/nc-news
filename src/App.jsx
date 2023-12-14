@@ -7,12 +7,14 @@ import Article from "./components/MainPages/Article";
 import { UserProvider } from "./context/UserContext";
 import Topics from "./components/MainPages/Topics";
 import Topic from "./components/MainPages/Topic";
+import ErrorPage from "./components/MainPages/ErrorPage";
 
 function App() {
   return (
     <UserProvider>
       <Header />
       <Routes>
+        <Route path="*" element={<ErrorPage />} />
         <Route path="/" element={<Home />} />{" "}
         <Route path="/articles/:article_id" element={<Article />} />
         <Route path="/topics" element={<Topics />} />

@@ -3,23 +3,41 @@ import ArticleCard from "../ArticleCard";
 import { useEffect, useState } from "react";
 import ArticlesList from "../ArticlesList";
 import { useSearchParams } from "react-router-dom";
+import Error from "./Error";
 
 const Home = () => {
   const [articles, setArticles] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const sortBy = searchParams.get("sort_by") || "created_at";
   const order = searchParams.get("order") || "ASC";
+  const [error, setError] = useState(null);
 
+  const validSortByOptions = ["created_at", "comment_count", "votes"];
+  const validOrderOptions = ["ASC", "DESC"];
+
+  useEffect(() => {
+    if (
+      !validSortByOptions.includes(sortBy) ||
+      !validOrderOptions.includes(order)
+    ) {
+      setError("Invalid sort or order parameter in the URL");
+      return;
+    }
+  });
   useEffect(() => {
     getAllArticlesByTopic("", sortBy, order)
       .then((response) => {
         setArticles(response);
       })
       .catch((err) => {
+        setError(err);
         console.log(err);
       });
   }, [sortBy, order]);
 
+  if (error) {
+    return <Error message={error} />;
+  }
   return (
     <div>
       <label>Sort by: </label>
