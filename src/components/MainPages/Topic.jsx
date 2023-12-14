@@ -18,7 +18,7 @@ const Topic = () => {
         });
         setTopic(chosenTopic[0]);
         setIsLoading(false);
-        return getAllArticlesByTopic(chosenTopic[0].slug);
+        return getAllArticlesByTopic(topic_name);
       })
       .then((articles) => {
         setArticles(articles);
