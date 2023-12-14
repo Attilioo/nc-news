@@ -17,7 +17,8 @@ The backend repository for this project can be found [here](https://github.com/A
 Before you begin, ensure you have met the following requirements:
 
 - You have installed the latest version of Node.js. You can check your Node version using `node --version` in your terminal.
-
+  For the procect i was running v21.1.0.
+  
 ## Installing Northcoders News
 
 To install Northcoders News, follow these steps:
