@@ -7,8 +7,8 @@ import { useSearchParams } from "react-router-dom";
 const Home = () => {
   const [articles, setArticles] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const sortBy = searchParams.get("sort_by") || "created_at";
-  const order = searchParams.get("order") || "ASC";
+  const sortBy = searchParams.get("sort_by");
+  const order = searchParams.get("order");
 
   useEffect(() => {
     getAllArticlesByTopic("", sortBy, order)
