@@ -3,12 +3,14 @@ import ArticleCard from "../ArticleCard";
 import { useEffect, useState } from "react";
 import ArticlesList from "../ArticlesList";
 import { useSearchParams } from "react-router-dom";
+import Error from "./Error";
 
 const Home = () => {
   const [articles, setArticles] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const sortBy = searchParams.get("sort_by") || "created_at";
   const order = searchParams.get("order") || "ASC";
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     getAllArticlesByTopic("", sortBy, order)
@@ -16,10 +18,14 @@ const Home = () => {
         setArticles(response);
       })
       .catch((err) => {
+        setError({ err });
         console.log(err);
       });
   }, [sortBy, order]);
 
+  if (error) {
+    return <Error message={error} />;
+  }
   return (
     <div>
       <label>Sort by: </label>

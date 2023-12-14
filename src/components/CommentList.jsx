@@ -13,6 +13,7 @@ const CommentList = () => {
   const [comments, setComments] = useState([]);
   const { article_id } = useParams();
   const [isDeleting, setIsDeleting] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     getCommentsByArticleId(article_id)
@@ -20,7 +21,7 @@ const CommentList = () => {
         setComments(response);
       })
       .catch((err) => {
-        console.log(err);
+        setError(true);
       });
   }, [article_id]);
 
@@ -40,6 +41,9 @@ const CommentList = () => {
         setIsDeleting(false);
       });
   };
+  if (error) {
+    return <></>;
+  }
   return (
     <>
       <section className="comment-section form">
