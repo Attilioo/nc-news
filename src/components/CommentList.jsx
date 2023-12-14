@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { getCommentsByArticleId, postCommentFromArticleId } from "../apis/api";
+import {
+  deleteComment,
+  getCommentsByArticleId,
+  postCommentFromArticleId,
+} from "../apis/api";
 import CommentCard from "./CommentCard";
 import "./styles/CommentList.css";
 import CommentForm from "./CommentForm";
@@ -8,6 +12,7 @@ import CommentForm from "./CommentForm";
 const CommentList = () => {
   const [comments, setComments] = useState([]);
   const { article_id } = useParams();
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     getCommentsByArticleId(article_id)
@@ -19,17 +24,22 @@ const CommentList = () => {
       });
   }, [article_id]);
 
-  // getCommentsByArticleId(article_id).then((response) => {
-  //   setComments(response);
-  // });
-  // const handleCommentSubmit = (commentToPost) => {
-  //   return postCommentFromArticleId(article_id, commentToPost).then(
-  //     (response) => {
-  //       console.log(response);
-  //     }
-  //   );
-  // };
-
+  const handleDeleteComment = (comment_id) => {
+    setIsDeleting(true);
+    deleteComment(comment_id)
+      .then((response) => {
+        const newComments = comments.filter(
+          (comment) => comment.comment_id !== comment_id
+        );
+        setComments(newComments);
+        setIsDeleting(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("there was an error, please try again later");
+        setIsDeleting(false);
+      });
+  };
   return (
     <>
       <section className="comment-section form">
@@ -39,7 +49,13 @@ const CommentList = () => {
         {comments.length === 0
           ? "There are no comments to display"
           : comments.map((comment) => {
-              return <CommentCard comment={comment} />;
+              return (
+                <CommentCard
+                  comment={comment}
+                  handleDeleteComment={handleDeleteComment}
+                  isDeleting={isDeleting}
+                />
+              );
             })}
       </section>
     </>
