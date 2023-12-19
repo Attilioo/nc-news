@@ -7,3 +7,9 @@
   margin: 2em;
   border-radius: 25px;
 }
+@media only screen and (max-width: 600px) {
+  .topic-card {
+    width: 14em;
+    margin: 2em 0em;
+  }
+}

@@ -63,7 +63,7 @@ const Article = () => {
                 <p className="topic">{article.topic}</p>
               </Link>
             </span>
-            <p className="title">{article.title}</p>
+            <h2 className="title">{article.title}</h2>
             <p>{article.body}</p>
 
             <span className="article-info">

@@ -9,7 +9,7 @@ const ArticleCard = ({ article }) => {
           <p className="author">{article.author}</p>{" "}
           <p className="topic">{article.topic}</p>
         </span>
-        <p className="title">{article.title}</p>
+        <h2 className="title">{article.title}</h2>
         <span className="article-info">
           <p>Votes:{article.votes}</p> <p>Comments: {article.comment_count}</p>
         </span>

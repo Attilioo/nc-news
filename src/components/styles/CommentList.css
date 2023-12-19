@@ -1,9 +1,24 @@
 .comment-section {
   width: 100%;
   background-color: grey;
-  margin-left: auto;
-  margin-right: auto;
   color: black;
   border-top: 1px solid black;
-  padding-top: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.comment-form {
+  width: 100%;
+  background-color: grey;
+}
+
+@media only screen and (max-width: 600px) {
+  .comment-section {
+    margin: 0;
+  }
+  .form {
+    height: 9em;
+    width: 100%;
+  }
 }

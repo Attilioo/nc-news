@@ -6,7 +6,7 @@ const Header = () => {
   const { user } = useContext(UserContext);
   return (
     <section className="header">
-      <span>Logo</span>
+      <span className="logo">Logo</span>
       <nav className="nav">
         <Link to={"/"}>Home</Link>
         <Link to={"/topics"}>Topics</Link>

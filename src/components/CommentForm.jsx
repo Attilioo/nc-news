@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import { useParams } from "react-router";
 import Error from "./MainPages/Error";
-
+import "./styles/CommentForm.css";
 import { postCommentFromArticleId } from "../apis/api";
 const CommentForm = ({ setComments }) => {
   const { user } = useContext(UserContext);
@@ -56,7 +56,7 @@ const CommentForm = ({ setComments }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} id="form">
       <label htmlFor="body" />
       <textarea
         type="text"
@@ -65,6 +65,7 @@ const CommentForm = ({ setComments }) => {
         onChange={handleInput}
         required
         value={commentToPost.body}
+        id="textarea"
       />
       <button disabled={isDisabled}>Submit</button>
       {error ? (

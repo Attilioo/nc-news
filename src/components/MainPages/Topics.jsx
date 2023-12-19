@@ -15,7 +15,6 @@ const Topics = () => {
 
   useEffect(() => {
     getTopics().then((response) => {
-      console.log(response);
       setTopics(response);
     }).catch((err) => {
       setError({ err });

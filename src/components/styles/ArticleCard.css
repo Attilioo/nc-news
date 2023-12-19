@@ -22,3 +22,21 @@
 .article-link {
   text-decoration: none;
 }
+
+@media only screen and (max-width: 600px) {
+  .article-card {
+    width: 90%;
+    padding: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  .article-info {
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .article-info p {
+    margin: 1em 0;
+  }
+}

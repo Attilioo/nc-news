@@ -4,3 +4,14 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+@media only screen and (max-width: 600px) {
+  .article-list {
+    width: 100%;
+    background-color: grey;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+  }
+}

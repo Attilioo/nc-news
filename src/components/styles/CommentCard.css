@@ -15,3 +15,9 @@
 .deleting {
   color: white;
 }
+
+@media only screen and (max-width: 600px) {
+  .comment-card {
+    margin: 2em 0em;
+  }
+}

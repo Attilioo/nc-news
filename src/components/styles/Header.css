@@ -16,3 +16,50 @@ nav > * {
 nav > * :hover {
   color: brown;
 }
+
+@media only screen and (max-width: 600px) {
+  .logo {
+    display: none;
+  }
+
+  .nav {
+    width: 100%;
+  }
+
+  .header {
+    flex-direction: row;
+    align-items: flex-start;
+    height: auto;
+  }
+
+  .header span,
+  .header nav,
+  .header p {
+    margin: 1em 0;
+  }
+
+  .header nav > * {
+    margin: 1em;
+    font-size: 1.2em;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  .nav > * {
+    font-size: 1.5em;
+  }
+
+  .header p {
+    font-size: 1.2em;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .nav > * {
+    font-size: 1.8em;
+  }
+
+  .header p {
+    font-size: 1.5em;
+  }
+}

@@ -46,7 +46,7 @@ const CommentList = () => {
   }
   return (
     <>
-      <section className="comment-section form">
+      <section className="comment-form form">
         <CommentForm setComments={setComments} />
       </section>
       <section className="comment-section">
